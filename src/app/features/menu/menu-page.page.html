@@ -1,0 +1,9 @@
+<div class="menu">
+  <h2>Menú Digital</h2>
+  <div *ngFor="let producto of productos" class="producto">
+    <h3>{{ producto.nombre }}</h3>
+    <p>Categoría: {{ producto.categoria }}</p>
+    <p>Precio: ${{ producto.precio }}</p>
+    <button>Agregar a Pedido</button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h2>Pago</h2>
+<p>Total a pagar: ${{ total }}</p>
+<select [(ngModel)]="metodo">
+  <option disabled value="">Selecciona método de pago</option>
+  <option value="tarjeta">Tarjeta</option>
+  <option value="paypal">PayPal</option>
+</select>
+<button [disabled]="!metodo">Pagar</button>

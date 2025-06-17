@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+
+  &:hover {
+    background: var(--color-secundario);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,8 @@
+<h2>Administración de Productos</h2>
+<ul>
+  <li *ngFor="let producto of productos">
+    {{ producto.nombre }} - ${{ producto.precio }}
+    <button>Editar</button>
+    <button>Eliminar</button>
+  </li>
+</ul>
