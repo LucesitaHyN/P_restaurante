@@ -4,6 +4,6 @@
     <h3>{{ producto.nombre }}</h3>
     <p>Categoría: {{ producto.categoria }}</p>
     <p>Precio: ${{ producto.precio }}</p>
-    <button>Agregar a Pedido</button>
+    <button (click)="agregarAlPedido(producto)">Agregar a Pedido</button>
   </div>
 </div>
