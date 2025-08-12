@@ -1,6 +1,6 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { SeguimientoPagePage } from './seguimiento-page.page';
+
 
 // describe('SeguimientoPagePage', () => {
 //   let component: SeguimientoPagePage;

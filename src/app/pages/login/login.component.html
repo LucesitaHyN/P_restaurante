@@ -1,0 +1,27 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Iniciar sesión</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label>
+        Correo electrónico:
+        <input type="email" formControlName="email" />
+      </label>
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">Correo inválido.</small>
+      </div>
+
+      <label>
+        Contraseña:
+        <input type="password" formControlName="password" />
+      </label>
+      <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
+      </div>
+
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Esperar a que MySQL esté listo en el puerto 3306
+./scripts/wait-for-it.sh mysql 3306 90
+
+node create-admin.js || echo "⚠ No se pudo crear el admin"
+
+# Luego, iniciar el backend (sin el "--" que no soporta el script)
+npm start

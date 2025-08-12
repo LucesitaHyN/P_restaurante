@@ -1,4 +1,4 @@
-const stripe = require('stripe')('process.env.STRIPE_SECRET_KEY');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const { validationResult } = require('express-validator');
 
 exports.realizarPago = async (req, res) => {
@@ -23,8 +23,8 @@ exports.realizarPago = async (req, res) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: 'http://localhost:4200/seguimiento?success=true',
-      cancel_url: 'http://localhost:4200/pagos?canceled=true',
+      success_url: 'http://localhost:4300/seguimiento?success=true',
+      cancel_url: 'http://localhost:4300/pagos?canceled=true',
     });
 
     res.json({ url: session.url });

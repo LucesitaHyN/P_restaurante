@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: restaurante
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - red_restaurante
+
+  backend:
+    build:
+      context: ./restaurante-backend
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mysql
+    env_file:
+    - ./restaurante-backend/process.env
+    ports:
+      - "3000:3000"
+    networks:
+      - red_restaurante
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "4300:80"
+    networks:
+      - red_restaurante
+
+volumes:
+  mysql_data:
+
+networks:
+  red_restaurante:
+    driver: bridge
+    attachable: true

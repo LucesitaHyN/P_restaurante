@@ -1,0 +1,37 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Crear cuenta</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <label>
+        Nombre:
+        <input type="text" formControlName="nombre" />
+      </label>
+      <div *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.invalid">
+        <small *ngIf="registerForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+        <small *ngIf="registerForm.get('nombre')?.errors?.['pattern']">Nombre inválido.</small>
+      </div>
+
+      <label>
+        Correo electrónico:
+        <input type="email" formControlName="email" />
+      </label>
+      <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Correo inválido.</small>
+      </div>
+
+      <label>
+        Contraseña:
+        <input type="password" formControlName="password" />
+      </label>
+      <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+        <small *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['pattern']">Debe incluir mayúsculas, minúsculas y un número.</small>
+      </div>
+
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+</div>

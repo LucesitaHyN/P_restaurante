@@ -1,8 +1,26 @@
-<h2>Pago</h2>
-<p>Total a pagar: ${{ total }}</p>
-<select [(ngModel)]="metodo">
-  <option disabled value="">Selecciona método de pago</option>
-  <option value="tarjeta">Tarjeta</option>
-  <option value="paypal">PayPal</option>
-</select>
-<button [disabled]="!metodo">Pagar</button>
+<div class="pago-wrapper">
+  <h2>Resumen del Pedido</h2>
+
+  <ul *ngIf="pedido.length > 0; else sinPedido">
+    <li *ngFor="let p of pedido; let i = index">
+      {{ p.nombre }} x{{ p.cantidad }} - ${{ p.precio * p.cantidad }}
+      <button (click)="eliminarProducto(i)">✕</button>
+    </li>
+  </ul>
+
+  <ng-template #sinPedido>
+    <p>No hay productos en el pedido.</p>
+  </ng-template>
+
+  <p class="total">Total: ${{ total }}</p>
+
+  <label for="metodo">Método de pago:</label>
+  <select [(ngModel)]="metodo" id="metodo">
+    <option disabled value="">Selecciona método</option>
+    <option value="tarjeta">Tarjeta</option>
+    <option value="paypal">PayPal</option>
+    <option value="efectivo">Efectivo</option>
+  </select>
+
+  <button [disabled]="!metodo" (click)="pagar()">Confirmar Pago</button>
+</div>

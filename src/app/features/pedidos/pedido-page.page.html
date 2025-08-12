@@ -1,8 +1,7 @@
-<h2>Mi Pedido</h2>
+<h2>Mis Pedidos</h2>
+
 <ul>
-  <li *ngFor="let item of pedido">
-    {{ item.nombre }} x{{ item.cantidad }} - ${{ item.precio * item.cantidad }}
+  <li *ngFor="let p of pedidos">
+    Pedido {{ p.id }} - ${{ p.total }} - Estado: {{ p.estado }}
   </li>
 </ul>
-<p>Total: ${{ total }}</p>
-<button>Enviar Pedido</button>
